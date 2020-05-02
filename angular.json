@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "RottenAngular"
+  "defaultProject": "RottenAngular",
+  "cli": {
+    "analytics": "39e3ecb1-1969-457f-ae1a-3b5be54fee81"
+  }
 }
