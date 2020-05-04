@@ -8,11 +8,14 @@ import { FormControl } from '@angular/forms';
 })
 export class SimpleSearchComponent implements OnInit {
 
-  searchterm:string;
+  searchterm:string = "intial words";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  showStuff() {
+
+  }
 }
