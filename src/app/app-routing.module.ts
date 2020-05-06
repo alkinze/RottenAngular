@@ -7,7 +7,7 @@ import { ReviewFormComponent } from './components/review-form/review-form.compon
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { AboutComponent } from './components/about/about.component';
-
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 
 const routes: Routes = [
@@ -34,7 +34,11 @@ const routes: Routes = [
  {
    component: AboutComponent,
    path: "about"
- }
+ },
+}
+  component: ThanksPageComponent,
+  path: "thanks-page"
+}
 ];
 
 @NgModule({

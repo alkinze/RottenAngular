@@ -15,6 +15,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AboutComponent } from './components/about/about.component';
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AboutComponent } from './components/about/about.component';
     FavoritesComponent,
     BannerComponent,
     AboutComponent
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,
