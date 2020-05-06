@@ -13,6 +13,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { AboutComponent } from './components/about/about.component';
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     SignupComponent,
     ReviewFormComponent,
     ProfilePageComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    BannerComponent,
+    AboutComponent
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,
