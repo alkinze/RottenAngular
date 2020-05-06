@@ -1,13 +1,37 @@
-
 <div id=navbar>
     <nav class="nav bg-dark">
-        <a routerLink="login" class="nav-link" *ngIf="nav.noUserVis" (click)="nav.checkSession()">Login</a>
-        <a routerLink="signup" class="nav-link" *ngIf="nav.noUserVis" (click)="nav.checkSession()">Signup</a>
+
+
+        <a routerLink="login" class="nav-link" *ngIf="nav.noUserVis" (click)="nav.checkSession()
+        
+        
+        ">Login</a>
+        <a routerLink="signup" class="nav-link" *ngIf="nav.noUserVis" (click)="nav.checkSession()
+        
+        
+        
+        ">Signup</a>
         <a routerLink="simple-search" class="nav-link" (click)="nav.checkSession()">Quick Search</a>
-        <a routerLink="review-form" class="nav-link" (click)="nav.checkSession()">Submit Review</a>
+
+
+    
         <a routerLink="about" class="nav-link" (click)="nav.checkSession()">About Us</a>
     </nav>
 
+
+        <!-- Begin Review Form Bugit tton-->
+        <div class="lg-5">
+            <a routerLink="review-form" class="nav-link" (click)="nav.checkSession()">Submit Review</a>
+        </div>
+        <!-- End Review Form Button-->
+
+        <!-- Begin Logout Button -->
+        <div class="lg-2 align-right text-success">
+            <a routerLink="login" class="nav-link" *ngIf="nav.UserVis" (click)="nav.invalidateSession()">Log Out</a>
+        </div>
+        <!-- End Logout Button -->
+
+
+    </nav>
+
 </div>
-
-
