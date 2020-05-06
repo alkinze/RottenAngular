@@ -32,6 +32,7 @@ from '@angular/core';
             this.noUserVis = false;
             this.UserVis = true;
         }
+        sessionStorage.clear
     };
     // end invalidateSession/logout
 
