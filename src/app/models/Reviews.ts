@@ -2,19 +2,19 @@
 export class Reviews{
 
     //variable declarations
-    private acting:number;
-    private availability:string;
-    private category:string;
-    private cinematography:number;
-    private genre:string;
-    private runtime:number;
-    private story:number;
-    private synopsis:string;
-    private mpaarating:string;
-    private overallrating:number;
-    private lengthtime:string;
-    private reviewname:string;
-    private audioscore:number;
+    acting:number;
+    availability:string;
+    category:string;
+    cinematography:number;
+    genre:string;
+    runtime:number;
+    story:number;
+    synopsis:string;
+    mpaaRating:string;
+    overallRating:number;
+    lengthTime:string;
+    reviewName:string;
+    audioscore:number;
 
     constructor(acting:number, availability:string, category:string, cinematography:number,
         genre:string, runtime:number, story:number, synopsis:string, mpaarating:string, 
@@ -27,10 +27,10 @@ export class Reviews{
             this.runtime = runtime;
             this.story = story;
             this.synopsis = synopsis;
-            this.mpaarating = mpaarating;
-            this.overallrating = overallrating;
-            this.lengthtime = lengthtime;
-            this.reviewname = reviewname;
+            this.mpaaRating = mpaarating;
+            this.overallRating = overallrating;
+            this.lengthTime = lengthtime;
+            this.reviewName = reviewname;
             this.audioscore = audioscore;
         }//end constructor
 
@@ -100,35 +100,35 @@ export class Reviews{
         }
 
         public getMpaarating():string{
-            return this.mpaarating;
+            return this.mpaaRating;
         }
 
         public setMpaarating(mpaarating:string){
-            this.mpaarating = mpaarating;
+            this.mpaaRating = mpaarating;
         }
 
         public getOverallrating():number{
-            return this.overallrating;
+            return this.overallRating;
         }
 
         public setOverallrating(overallrating:number){
-            this.overallrating = overallrating;
+            this.overallRating = overallrating;
         }
 
         public getLengthtime():string{
-            return this.lengthtime;
+            return this.lengthTime;
         }
 
         public setLengthtime(lengthtime:string){
-            this.lengthtime = lengthtime;
+            this.lengthTime = lengthtime;
         }
 
         public getReviewname():string{
-            return this.reviewname;
+            return this.reviewName;
         }
 
         public setReviewname(reviewname:string){
-            this.reviewname = reviewname;
+            this.reviewName = reviewname;
         }
 
         public getAudioscore():number{
