@@ -28,7 +28,7 @@ import { ThanksPageComponent } from './thanks-page/thanks-page.component';
     ProfilePageComponent,
     FavoritesComponent,
     BannerComponent,
-    AboutComponent
+    AboutComponent,
     ThanksPageComponent
   ],
   imports: [
