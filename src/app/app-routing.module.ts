@@ -6,8 +6,8 @@ import { SimpleSearchComponent } from './simple-search/simple-search.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { AboutComponent } from './components/about/about.component';
 import { ThanksPageComponent } from './thanks-page/thanks-page.component';
-
 
 
 const routes: Routes = [
@@ -32,6 +32,10 @@ const routes: Routes = [
    path: "profile-page"
  },
  {
+   component: AboutComponent,
+   path: "about"
+ },
+}
   component: ThanksPageComponent,
   path: "thanks-page"
 }
