@@ -35,7 +35,7 @@ const routes: Routes = [
    component: AboutComponent,
    path: "about"
  },
-}
+{
   component: ThanksPageComponent,
   path: "thanks-page"
 }

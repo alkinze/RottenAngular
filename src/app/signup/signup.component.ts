@@ -14,7 +14,6 @@ export class SignupComponent implements OnInit {
   password:string;
   visible:boolean = false;
 
-  user:Users = new Users(0, "", "");
 
   constructor(private userService:UsersService, private router:Router) { }
 
@@ -22,7 +21,8 @@ export class SignupComponent implements OnInit {
   }
 
   //Insert User
-  signUp(user:Users){
+  signUp(){
+    let user:Users = new Users(undefined, this.name, this.password);
     this.userService.insertUser(user);
     this.router.navigate(['/thanks-page']); // route user to a thank you for signing up page.
   }
