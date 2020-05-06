@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ReviewFormComponent } from './components/review-form/review-form.compon
     SimpleSearchComponent,
     LoginComponent,
     SignupComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    ProfilePageComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

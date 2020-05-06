@@ -11,7 +11,7 @@ import {FormsModule} from '@angular/forms';
 export class SimpleSearchComponent implements OnInit {
 
   searchterm:string;
-  visible:boolean = false;
+  //visible:boolean = false;
   reviews:Reviews[] = [];
   constructor(private reviewService:ReviewsService) { }
 
@@ -19,7 +19,7 @@ export class SimpleSearchComponent implements OnInit {
   }
 
   getReviewsByName(name:string) {
-    this.visible = true;
+  //  this.visible = true;
     this.reviewService.getReviewsByName(name).subscribe(
       (data) =>{
         console.log(data);
