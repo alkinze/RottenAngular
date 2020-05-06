@@ -1,10 +1,10 @@
 
 <div id=navbar>
     <nav class="nav bg-dark">
-        <a routerLink="login" class="nav-link">PsuedoLogin</a>
-        <a routerLink="signup" class="nav-link">PsuedoSignup</a>
-        <a routerLink="simple-search" class="nav-link">Quick Search</a>
-        <a routerLink="review-form" class="nav-link">Submit Review</a>
+        <a routerLink="login" class="nav-link" *ngIf="nav.noUserVis" (click)="nav.checkSession()">Login</a>
+        <a routerLink="signup" class="nav-link" *ngIf="nav.noUserVis" (click)="nav.checkSession()">Signup</a>
+        <a routerLink="simple-search" class="nav-link" (click)="nav.checkSession()">Quick Search</a>
+        <a routerLink="review-form" class="nav-link" (click)="nav.checkSession()">Submit Review</a>
     </nav>
 
 </div>
