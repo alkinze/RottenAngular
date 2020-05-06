@@ -6,6 +6,7 @@ import { SimpleSearchComponent } from './simple-search/simple-search.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 
 
@@ -29,7 +30,11 @@ const routes: Routes = [
  {
    component: ProfilePageComponent,
    path: "profile-page"
- }
+ },
+ {
+  component: ThanksPageComponent,
+  path: "thanks-page"
+}
 ];
 
 @NgModule({
