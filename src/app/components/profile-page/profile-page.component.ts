@@ -35,8 +35,10 @@ export class ProfilePageComponent implements OnInit {
     this.userService.getUsersByName(this.username).subscribe(
       data => {
         this.user = data;
-        this.favoriteService.getFavoritesByUserId(this.user.usersid).subscribe(
+        console.log(this.user);
+        this.favoriteService.getFavoritesByUsername(this.username).subscribe(
           data => {
+            
             this.favorite = data;
             console.log(this.favorite);
           },
