@@ -7,7 +7,19 @@
 
 
             <button class="btn text-light" (click)="getReviewsByName(searchterm)">Search</button>
+            <br>
+
+
         </form>
+        <!-- Begin Recommend Button -->
+
+        <!-- (click)="insertRecommendation()" -->
+
+        <button (click)="popUp()" class="btn btn-success">Recommend</button>
+
+
+
+        <!-- End Recommend Button -->
     </nav>
 </div>
 
@@ -47,6 +59,16 @@
                 <td>{{r.acting}}</td>
                 <td>{{r.lengthTime | titlecase}}</td>
             </tr>
+
+
         </tbody>
     </table>
+</div>
+
+<div id="modal-thingy" class="hide">
+    <form>
+        <label>Who would you like to recommend this to?</label>
+        <input [(ngModel)]="receiverName" placeholder="Enter a email" name="receiverName" type="text">
+    </form>
+    <button value="" (click)="insertRecommendation(searchterm, receiverName)" class="btn btn-success">Okay</button>
 </div>
