@@ -1,3 +1,8 @@
+
+button{
+    margin-bottom: 10px;
+}
+
 #modal-thingy {
     position: absolute;
     left: 32em;
@@ -13,3 +18,4 @@
 .hide {
   display: none;
 }
+
