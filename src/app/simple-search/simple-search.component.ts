@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Reviews } from '../models/Reviews';
-import { ReviewsService } from '../services/reviews.service';
+import {Component, OnInit} from '@angular/core';
+import {Reviews} from '../models/Reviews';
+import {ReviewsService} from '../services/reviews.service';
 import {FormsModule} from '@angular/forms';
+
 import { FavoritesService } from '../services/favorites.service';
 import { Favorites } from '../models/Favorites';
 import { Users } from '../models/Users';
@@ -9,11 +10,18 @@ import { UsersService } from '../services/users.service';
 import { MoviesService } from '../services/movies.service';
 import { Movies } from '../models/Movies';
 
-@Component({
-  selector: 'app-simple-search',
-  templateUrl: './simple-search.component.html',
-  styleUrls: ['./simple-search.component.css']
-})
+// import { $ } from 'protractor';
+// declare var $:JQueryStatic;
+
+import * as $ from 'jquery';
+import {RecommendationsService} from '../services/recommendations.service';
+import {Movies} from '../models/Movies';
+import {Users} from '../models/Users';
+import {Recommendations} from '../models/Recommendations';
+import {MoviesService} from '../services/movies.service';
+import {UsersService} from '../services/users.service';
+
+@Component({selector: 'app-simple-search', templateUrl: './simple-search.component.html', styleUrls: ['./simple-search.component.css']})
 export class SimpleSearchComponent implements OnInit {
 
   searchterm:string;
@@ -27,11 +35,17 @@ export class SimpleSearchComponent implements OnInit {
   username:string;
   favorites:Favorites;
 
+   // For recommendations
+    movie1 : Movies = new Movies(0, "");
+    senderName : string;
+    receiverName : string;
+    reccomendation : Recommendations;
 
   constructor(private reviewService:ReviewsService, 
               private favoriteService:FavoritesService,
               private userService:UsersService,
-              private movieService:MoviesService) { }
+              private movieService:MoviesService,
+             private recommendationService : RecommendationsService) { }
 
   ngOnInit(): void {
     
@@ -87,5 +101,26 @@ export class SimpleSearchComponent implements OnInit {
       }//end error
     )//end subscribe
   }
-  
+
+ // control modal display
+    popUp() {
+        $("#modal-thingy").toggleClass("show");
+        $("#modal-thingy").toggleClass("hide")
+    }
+
+ insertRecommendation(movieName : string, receiverName : string) {
+
+        this.movieService.getMovieByName(movieName).subscribe(data => {
+            this.movie1 = data[0];
+            this.senderName = sessionStorage.getItem('user');
+            this.reccomendation = new Recommendations(undefined, this.movie1, this.senderName, receiverName);
+            console.log(this.reccomendation);
+            this.recommendationService.insertRecommendation(this.reccomendation);
+        }, () => {
+            console.log("data not found");
+
+        })
+        this.popUp();
+    }
+
 }

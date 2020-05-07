@@ -1,5 +1,5 @@
-import { Users } from './Users';
-import { Movies } from './Movies';
+import {Users} from './Users';
+import {Movies} from './Movies';
 
 export class Favorites {
 
@@ -37,5 +37,6 @@ export class Favorites {
 
     public setMovieId(movieId:Movies){
         this.movie = movieId;
+
     }
 }
