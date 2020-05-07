@@ -1,2 +1,18 @@
-
 <h2>Welcome {{user}}</h2>
+
+<div class="text-success align-right pl-5">
+ <h4>Here are the movies that have been recommended to you!</h4>
+</div>
+
+<ul style="list-style-type:none;" *ngFor='let r of recommendation'>
+ <li>
+  <div class="card container bg-success">
+   <div class="card-body">
+    <h4 class="card-title">{{r.movie.movieName}}</h4>
+    <p>
+     Sent By: {{r.sender}}
+    </p>
+   </div>
+  </div>
+ </li>
+</ul>

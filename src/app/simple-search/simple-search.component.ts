@@ -12,9 +12,13 @@ import {Users} from '../models/Users';
 import {Recommendations} from '../models/Recommendations';
 import {MoviesService} from '../services/movies.service';
 import {UsersService} from '../services/users.service';
+import {NavbarService} from '../services/navbar.service';
 
 @Component({selector: 'app-simple-search', templateUrl: './simple-search.component.html', styleUrls: ['./simple-search.component.css']})
 export class SimpleSearchComponent implements OnInit {
+
+    noUserVis : boolean = true; // if no user logged in
+    UserVis : boolean = false; // if user logged in
 
     searchterm : string;
     // visible:boolean = false;
@@ -28,9 +32,12 @@ export class SimpleSearchComponent implements OnInit {
     reccomendation : Recommendations;
 
 
-    constructor(private reviewService : ReviewsService, private recommendationService : RecommendationsService, private movieService : MoviesService, private userService : UsersService) {}
+    constructor(public nav : NavbarService, private reviewService : ReviewsService, private recommendationService : RecommendationsService, private movieService : MoviesService, private userService : UsersService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.nav.checkSession();
+        this.showRecButton();
+    }
 
     getReviewsByName(name : string) { // this.visible = true;
         this.reviewService.getReviewsByName(name).subscribe((data) => {
@@ -53,6 +60,16 @@ export class SimpleSearchComponent implements OnInit {
     // This is jQuery. jQuery allows us to manipulate the DOM
     // Here i target an element with the id modal-thingy
     // Then, I add/remove certain classes from the modal in order to hide/show the /////// modal.
+
+    showRecButton() {
+        if (sessionStorage.length > 0) {
+            this.noUserVis = true;
+            this.UserVis = false;
+        } else {
+            this.noUserVis = false;
+            this.UserVis = true;
+        }
+    }
 
 
     insertRecommendation(movieName : string, receiverName : string) {
