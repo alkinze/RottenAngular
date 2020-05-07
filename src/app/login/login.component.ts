@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     } else {
       console.log("passwords: " + this.user.pass + " from page: " + this.password );
       if ( this.user.pass == this.password) {
-        console.log('WTHECK TYPESCRIPT');
+        //console.log('WTHECK TYPESCRIPT');
         //setup key value pair for session
         let key:string = 'user';
 

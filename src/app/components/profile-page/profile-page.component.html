@@ -1,2 +1,16 @@
 
-<h2>Welcome {{user}}</h2>
+<h2 class="text-center">Welcome {{username}}</h2>
+<br>
+<br>
+<h5 class="container">Here is a list of your favorite movies!</h5>
+
+<ul style="list-style-type:none;" *ngFor='let f of favorite'>
+ <li>   
+    <div class="card container bg-success" >
+        <div class="card-body">
+        <h4 class="card-title">{{f.movie}}</h4>
+        <p class="card-text">Quick synopsis</p>
+    </div>
+  </div>
+ </li>
+</ul>
