@@ -9,6 +9,7 @@ import { Users } from '../models/Users';
 import { UsersService } from '../services/users.service';
 import { MoviesService } from '../services/movies.service';
 import { Movies } from '../models/Movies';
+import { NavbarService } from '../services/navbar.service';
 
 // import { $ } from 'protractor';
 // declare var $:JQueryStatic;
@@ -47,7 +48,6 @@ export class SimpleSearchComponent implements OnInit {
     reccomendation : Recommendations;
 
 
-
     constructor(public nav : NavbarService, private reviewService : ReviewsService, private recommendationService : RecommendationsService, 
                 private movieService : MoviesService, private userService : UsersService, private favoriteService:FavoritesService,) {}
 
@@ -59,7 +59,6 @@ export class SimpleSearchComponent implements OnInit {
    //Add Favorites
   addFavorites(name:string){
     
-
     this.movieService.getMovieByName(name).subscribe(
       (data) =>{
         
