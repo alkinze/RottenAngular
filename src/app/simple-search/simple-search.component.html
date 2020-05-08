@@ -7,7 +7,19 @@
 
 
             <button class="btn text-light" (click)="getReviewsByName(searchterm)">Search</button>
+            <br>
+
+
         </form>
+        <!-- Begin Recommend Button -->
+
+        <!-- (click)="insertRecommendation()" -->
+
+        <button *ngIf="nav.UserVis" (click)="popUp()" class="btn btn-success">Recommend</button>
+
+
+
+        <!-- End Recommend Button -->
     </nav>
 </div>
 <div class="text-center " ><button class="btn btn-info" (click)="addFavorites(searchterm)" >Add to Favorites</button></div>
@@ -49,4 +61,11 @@
             </tr>
         </tbody>
     </table>
+</div>
+<div id="modal-thingy" class="container-center hide text-dark">
+    <form class="justify-content-center">
+        <label class="text-center text-light">Who would you like to recommend this movie to?</label>
+        <input [(ngModel)]="receiverName" placeholder="Enter a email" name="receiverName" type="text">
+    </form>
+    <button value="" (click)="insertRecommendation(searchterm, receiverName)" class="btn btn-success">Okay</button>
 </div>

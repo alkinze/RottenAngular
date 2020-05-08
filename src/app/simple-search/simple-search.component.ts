@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Reviews } from '../models/Reviews';
-import { ReviewsService } from '../services/reviews.service';
+import {Component, OnInit} from '@angular/core';
+import {Reviews} from '../models/Reviews';
+import {ReviewsService} from '../services/reviews.service';
 import {FormsModule} from '@angular/forms';
+
 import { FavoritesService } from '../services/favorites.service';
 import { Favorites } from '../models/Favorites';
 import { Users } from '../models/Users';
@@ -10,17 +11,29 @@ import { MoviesService } from '../services/movies.service';
 import { Movies } from '../models/Movies';
 import { NavbarService } from '../services/navbar.service';
 
-@Component({
-  selector: 'app-simple-search',
-  templateUrl: './simple-search.component.html',
-  styleUrls: ['./simple-search.component.css']
-})
+// import { $ } from 'protractor';
+// declare var $:JQueryStatic;
+
+import * as $ from 'jquery';
+import {RecommendationsService} from '../services/recommendations.service';
+import {Movies} from '../models/Movies';
+import {Users} from '../models/Users';
+import {Recommendations} from '../models/Recommendations';
+import {MoviesService} from '../services/movies.service';
+import {UsersService} from '../services/users.service';
+import {NavbarService} from '../services/navbar.service';
+
+@Component({selector: 'app-simple-search', templateUrl: './simple-search.component.html', styleUrls: ['./simple-search.component.css']})
 export class SimpleSearchComponent implements OnInit {
 
-  searchterm:string;
-  //visible:boolean = false;
-  reviews:Reviews[] = [];
-  
+
+    noUserVis : boolean = true; // if no user logged in
+    UserVis : boolean = false; // if user logged in
+
+    searchterm : string;
+    // visible:boolean = false;
+    reviews : Reviews[] = [];
+
 
   //for favorites
   movie:Movies= new Movies(0, "");;
@@ -28,19 +41,22 @@ export class SimpleSearchComponent implements OnInit {
   username:string;
   favorites:Favorites;
 
+   // For recommendations
+    movie1 : Movies = new Movies(0, "");
+    senderName : string;
+    receiverName : string;
+    reccomendation : Recommendations;
 
-  constructor(private reviewService:ReviewsService, 
-              private favoriteService:FavoritesService,
-              private userService:UsersService,
-              private movieService:MoviesService,
-              public navService:NavbarService) { }
 
-  ngOnInit(): void {
-    
-    
-  }
+    constructor(public nav : NavbarService, private reviewService : ReviewsService, private recommendationService : RecommendationsService, 
+                private movieService : MoviesService, private userService : UsersService, private favoriteService:FavoritesService,) {}
 
-  //Add Favorites
+    ngOnInit(): void {
+        this.nav.checkSession();
+        this.showRecButton();
+    }
+
+   //Add Favorites
   addFavorites(name:string){
     
     this.movieService.getMovieByName(name).subscribe(
@@ -84,5 +100,46 @@ export class SimpleSearchComponent implements OnInit {
       }//end error
     )//end subscribe
   }
-  
+
+ // control modal display
+
+    popUp() {
+        $("#modal-thingy").toggleClass("show");
+        $("#modal-thingy").toggleClass("hide")
+    }
+
+
+    // console.log("button clicked!2", $("#modal-thingy"));
+    // This is jQuery. jQuery allows us to manipulate the DOM
+    // Here i target an element with the id modal-thingy
+    // Then, I add/remove certain classes from the modal in order to hide/show the /////// modal.
+
+    showRecButton() {
+        if (sessionStorage.length > 0) {
+            this.noUserVis = true;
+            this.UserVis = false;
+        } else {
+            this.noUserVis = false;
+            this.UserVis = true;
+        }
+    }
+
+
+    
+ insertRecommendation(movieName : string, receiverName : string) {
+
+
+        this.movieService.getMovieByName(movieName).subscribe(data => {
+            this.movie1 = data[0];
+            this.senderName = sessionStorage.getItem('user');
+            this.reccomendation = new Recommendations(undefined, this.movie1, this.senderName, receiverName);
+            console.log(this.reccomendation);
+            this.recommendationService.insertRecommendation(this.reccomendation);
+        }, () => {
+            console.log("data not found");
+
+        })
+        this.popUp();
+    }
+
 }
