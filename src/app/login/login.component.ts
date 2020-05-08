@@ -31,17 +31,19 @@ export class LoginComponent implements OnInit {
         ) // end subscribe
     }
 
-    check() { // compare passwords
-        if (this.user.usersid == undefined) {
-            this.visible = true;
-            console.log("undefined");
-            this.router.navigate(['/login']);
-        } else {
-            console.log("passwords: " + this.user.pass + " from page: " + this.password);
-            if (this.user.pass == this.password) {
-                console.log('WTHECK TYPESCRIPT');
-                // setup key value pair for session
-                let key: string = 'user';
+    check(){
+    //compare passwords
+    if(this.user.usersid == undefined) {
+      this.visible = true;
+      console.log("undefined");
+      this.router.navigate(['/login']);
+    } else {
+      console.log("passwords: " + this.user.pass + " from page: " + this.password );
+      if ( this.user.pass == this.password) {
+        //console.log('WTHECK TYPESCRIPT');
+        //setup key value pair for session
+        let key:string = 'user';
+
 
                 sessionStorage.setItem(key, this.name); // only store username in sesssion for security
                 console.log("refuses to go to the right dang page")

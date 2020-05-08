@@ -11,7 +11,15 @@
         
         
         ">Signup</a>
+
+        <a routerLink="profile-page" class="nav-link" *ngIf="nav.UserVis" (click)="nav.checkSession()
+        
+        
+        
+        ">Profile</a>
+
         <a routerLink="simple-search" class="nav-link" (click)="nav.checkSession()">Quick Search</a>
+
 
         <a routerLink="about" class="nav-link" (click)="nav.checkSession()">About Us</a>
 
