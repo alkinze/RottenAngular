@@ -1,31 +1,34 @@
 <h2 class="text-center">Welcome {{username}}</h2>
 
 
-<div class="text-success align-right pl-5">
- <h4>Here are the movies that have been recommended to you!</h4>
+<div class="container">
+    <h4>Here are the movies that have been recommended to you!</h4>
 </div>
 
 <ul style="list-style-type:none;" *ngFor='let r of recommendation'>
- <li>
-  <div class="card container bg-success">
-   <div class="card-body">
-    <h4 class="card-title">{{r.movie.movieName}}</h4>
-    <p>
-     Sent By: {{r.sender}}
-    </p>
-   </div>
-  </div>
-    <br>
+    <li>
+        <div class="card container bg-success">
+            <div class="card-body">
+                <h4 class="card-title">{{r.movie.movieName}}</h4>
+                <p>
+                    Sent By: {{r.sender}}
+                </p>
+            </div>
+
+        </div>
+    </li>
+</ul>
+<br>
 <br>
 <h4 class="container">Here is a list of your favorite movies!</h4>
 
 <ul style="list-style-type:none;" *ngFor='let f of favorite'>
- <li>   
-    <div class="card container bg-success" >
-        <div class="card-body">
-        <h4 class="card-title">{{f.movie.movieName}}</h4>
-        
-    </div>
-    </div>
- </li>
+    <li>
+        <div class="card container bg-success">
+            <div class="card-body">
+                <h4 class="card-title">{{f.movie.movieName}}</h4>
+
+            </div>
+        </div>
+    </li>
 </ul>

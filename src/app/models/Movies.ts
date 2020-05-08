@@ -1,26 +1,26 @@
 export class Movies {
 
-    movieid : number;
-    moviename : string;
+    movieId : number;
+    movieName : string;
 
     constructor(movieid : number, moviename : string) {
-        this.movieid = movieid;
-        this.moviename = moviename;
+        this.movieId = movieid;
+        this.movieName = moviename;
     }
 
     public getMovieid(): number {
-        return this.movieid;
+        return this.movieId;
     }
 
     public setMovieid(movieid : number) {
-        this.movieid = movieid;
+        this.movieId = movieid;
     }
 
     public getMoviename(): string {
-        return this.moviename;
+        return this.movieName;
     }
 
     public setMoviename(moviename : string) {
-        this.moviename = moviename;
+        this.movieName = moviename;
     }
 }

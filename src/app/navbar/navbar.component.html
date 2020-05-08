@@ -20,11 +20,6 @@
 
         <a routerLink="simple-search" class="nav-link" (click)="nav.checkSession()">Quick Search</a>
 
-
-        <a routerLink="about" class="nav-link" (click)="nav.checkSession()">About Us</a>
-
-
-
         <!-- Begin Review Form Bugit tton-->
 
         <div class="lg-5">
@@ -32,17 +27,19 @@
         </div>
         <!-- End Review Form Button-->
 
+        <a routerLink="about" class="nav-link" (click)="nav.checkSession()">About Us</a>
+
+
+
+
+
         <!-- Begin Logout Button -->
 
         <a routerLink="login" class="nav-link" *ngIf="nav.UserVis" (click)="nav.invalidateSession()">Log Out</a>
 
         <!-- End Logout Button -->
 
-        <!--Begin profile link-->
 
-        <a routerLink="profile-page" class="nav-link" *ngIf="nav.UserVis" (click)="viewProfile">View Your Profile</a>
-
-        <!--End profile link-->
 
 
 

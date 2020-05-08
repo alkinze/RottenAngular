@@ -10,7 +10,7 @@ export class UsersService {
 
     // getusers by username
     getUsersByName(name : string): Observable < Users > {
-        return this.http.get('http://localhost:8080/user/name/' + name)as Observable < Users >;
+        return this.http.get('http://13.58.248.241:8085/user/name/' + name)as Observable < Users >;
     }
 
     // send users
@@ -18,7 +18,7 @@ export class UsersService {
 
         let header = new HttpHeaders().set('Content-Type', 'application/json');
 
-        this.http.post('http://localhost:8080/user/new', JSON.stringify(user), {headers: header}).subscribe(() => {
+        this.http.post('http://13.58.248.241:8085/user/new', JSON.stringify(user), {headers: header}).subscribe(() => {
             console.log("successful submit");
         }, () => {
             console.log("failed submission");

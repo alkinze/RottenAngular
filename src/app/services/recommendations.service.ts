@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
     constructor(private http : HttpClient) {}
     // get recommendations by user
     getRecommendationsByUser(user : string): Observable < Recommendations[] > {
-        return this.http.get('http://localhost:8080/recommendations/name/' + user)as Observable < Recommendations[] >;
+        return this.http.get('http://13.58.248.241:8085/recommendations/name/' + user)as Observable < Recommendations[] >;
     }
 
 
@@ -17,7 +17,7 @@ import {Observable} from 'rxjs';
 
         let header = new HttpHeaders().set('Content-Type', 'application/json');
 
-        this.http.post('http://localhost:8080/recommendations/new', JSON.stringify(recommendation), {headers: header}).subscribe(() => {
+        this.http.post('http://13.58.248.241:8085/recommendations/new', JSON.stringify(recommendation), {headers: header}).subscribe(() => {
             console.log("successful submit");
         }, () => {
             console.log("failed submission");

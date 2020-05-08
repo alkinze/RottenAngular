@@ -12,17 +12,16 @@
 
         </form>
         <!-- Begin Recommend Button -->
-
-        <!-- (click)="insertRecommendation()" -->
-
-        <button *ngIf="nav.UserVis" (click)="popUp()" class="btn btn-success">Recommend</button>
-
-
-
-        <!-- End Recommend Button -->
     </nav>
 </div>
-<div class="text-center " ><button class="btn btn-info" (click)="addFavorites(searchterm)" >Add to Favorites</button></div>
+<!-- (click)="insertRecommendation()" -->
+<span><button *ngIf="nav.UserVis" (click)="popUp()" class="btn btn-success"> Recommend </button>
+    <!-- End Recommend Button -->
+
+
+
+    <button *ngIf="nav.UserVis" class="btn btn-success ml-2" (click)="addFavorites(searchterm)">Add to
+        Favorites</button></span>
 <!--<div class="container-fluid"></div>-->
 <div class="table-responsive">
     <table class="table table-dark table-striped">

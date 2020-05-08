@@ -14,7 +14,8 @@ export class Reviews{
     overallRating:number;
     lengthTime:string;
     reviewName:string;
-    audioscore:number;
+    audioScore:number;
+   
 
     constructor(acting:number, availability:string, category:string, cinematography:number,
         genre:string, runtime:number, story:number, synopsis:string, mpaarating:string, 
@@ -31,7 +32,7 @@ export class Reviews{
             this.overallRating = overallrating;
             this.lengthTime = lengthtime;
             this.reviewName = reviewname;
-            this.audioscore = audioscore;
+            this.audioScore = audioscore;
         }//end constructor
 
         //setters and getters
@@ -132,11 +133,11 @@ export class Reviews{
         }
 
         public getAudioscore():number{
-            return this.audioscore;
+            return this.audioScore;
         }
 
         public setAudioscore(audioscore:number){
-            this.audioscore = audioscore;
+            this.audioScore = audioscore;
         }
 
 }//end reviews class

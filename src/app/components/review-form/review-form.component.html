@@ -1,13 +1,18 @@
 <form class="text-center border border-light p-5">
     <p class="h4 mb-4">Review a Movie</p>
-    <input type="text" id="movieName" name="movieName" class="form-control mb-4" placeholder="Movie Name" [(ngModel)]="review.reviewName" required>
-    <input type="text" id="genre" name="genre" class="form-control mb-4" placeholder="Genre" [(ngModel)]="review.genre" required>
-    <textarea rows="4" id="synopsis" name="synopsis" class="form-control rounded-0" placeholder="Synopsis" [(ngModel)]="review.synopsis" required></textarea>
+    <input type="text" id="movieName" name="movieName" class="form-control mb-4" placeholder="Movie Name"
+        [(ngModel)]="review.reviewName" required>
+    <input type="text" id="genre" name="genre" class="form-control mb-4" placeholder="Genre" [(ngModel)]="review.genre"
+        required>
+    <textarea rows="4" id="synopsis" name="synopsis" class="form-control rounded-0" placeholder="Synopsis"
+        [(ngModel)]="review.synopsis" required></textarea>
     <br>
-    <input type="text" id="mpaarating" name="mpaarating" class="form-control mb-4" placeholder="MPAA Rating" [(ngModel)]="review.mpaaRating" required>
-    
+    <input type="text" id="mpaarating" name="mpaarating" class="form-control mb-4" placeholder="MPAA Rating"
+        [(ngModel)]="review.mpaaRating" required>
+
     <label for="category">Category</label>
-    <select id="category" name="category" class="browser-default custom-select mb-4" [(ngModel)]="review.category" required>
+    <select id="category" name="category" class="browser-default custom-select mb-4" [(ngModel)]="review.category"
+        required>
         <option value="movie">Movie</option>
         <option value="youtube">Youtube</option>
         <option value="tiktok">TikTok</option>
@@ -15,7 +20,8 @@
     </select>
 
     <label for="availability">Availability</label>
-    <select id="availability" name="availability" class="browser-default custom-select mb-4" [(ngModel)]="review.availability" required>
+    <select id="availability" name="availability" class="browser-default custom-select mb-4"
+        [(ngModel)]="review.availability" required>
         <option value="theater">Theater</option>
         <option value="youtube">YouTube</option>
         <option value="netflix">Netflix</option>
@@ -26,25 +32,32 @@
         <option value="tiktok">Tiktok</option>
     </select>
 
-    <input type="text" id="lengthTime" name="lengthTime" class="form-control mb-4" [(ngModel)]="review.lengthTime" placeholder="Length (How long did the video feel?)" required>
-    
+    <input type="text" id="lengthTime" name="lengthTime" class="form-control mb-4" [(ngModel)]="review.lengthTime"
+        placeholder="Length (How long did the video feel?)" required>
+
     <label for="runtime">Runtime (in minutes)</label>
-    <input type="number" id="runtime" name="runtime" class="form-control mb-4" value="90" [(ngModel)]="review.runtime" required>
-    
+    <input type="number" id="runtime" name="runtime" class="form-control mb-4" value="90" [(ngModel)]="review.runtime"
+        required>
+
     <label for="overallRating">Overall Video Rating</label>
-    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="overallRating" name="overallRating" [(ngModel)]="review.overallRating" required>
-    
+    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="overallRating"
+        name="overallRating" [(ngModel)]="review.overallRating" required>
+
     <label for="cinematography">Cinematography Rating</label>
-    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="Cinematography" name="Cinematography" [(ngModel)]="review.cinematography" required>
-    
+    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="Cinematography"
+        name="Cinematography" [(ngModel)]="review.cinematography" required>
+
     <label for="story">Story Rating</label>
-    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="story" name="story" [(ngModel)]="review.story" required>
+    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="story" name="story"
+        [(ngModel)]="review.story" required>
 
     <label for="audioScore">Audio Score Rating</label>
-    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="audioScore" name="audioScore" [(ngModel)]="review.audioscore" required>
+    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="audioScore"
+        name="audioScore" [(ngModel)]="review.audioScore" required>
 
     <label for="acting">Acting Rating</label>
-    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="acting" name="acting" [(ngModel)]="review.acting" required>
+    <input type="number" min="0" max="10" step=".5" value="0" class="form-control mb-4" id="acting" name="acting"
+        [(ngModel)]="review.acting" required>
 
     <button class="btn btn-info btn-block" type="submit" (click)="submitReview()">Send</button>
 </form>
