@@ -1,12 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ReviewsService } from './reviews.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('ReviewsService', () => {
   let service: ReviewsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+
+      imports :[
+        FormsModule
+      ],
+      providers: [HttpClient, HttpHandler]
+    });
     service = TestBed.inject(ReviewsService);
   });
 
