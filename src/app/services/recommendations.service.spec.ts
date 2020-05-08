@@ -1,12 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 
 import { RecommendationsService } from './recommendations.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('RecommendationsService', () => {
   let service: RecommendationsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+
+      imports :[
+        FormsModule
+      ],
+      providers: [HttpClient, HttpHandler]
+    });
     service = TestBed.inject(RecommendationsService);
   });
 
