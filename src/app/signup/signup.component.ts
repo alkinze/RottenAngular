@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  name:string;
-  password:string;
+  name:string ="";
+  password:string ="";
   visible:boolean = false;
 
 

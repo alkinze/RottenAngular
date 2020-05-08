@@ -8,6 +8,7 @@ import { Users } from '../models/Users';
 import { UsersService } from '../services/users.service';
 import { MoviesService } from '../services/movies.service';
 import { Movies } from '../models/Movies';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-simple-search',
@@ -31,21 +32,17 @@ export class SimpleSearchComponent implements OnInit {
   constructor(private reviewService:ReviewsService, 
               private favoriteService:FavoritesService,
               private userService:UsersService,
-              private movieService:MoviesService) { }
+              private movieService:MoviesService,
+              public navService:NavbarService) { }
 
   ngOnInit(): void {
     
     
-    
   }
-
-
-  
 
   //Add Favorites
   addFavorites(name:string){
     
-
     this.movieService.getMovieByName(name).subscribe(
       (data) =>{
         
