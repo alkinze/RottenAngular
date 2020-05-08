@@ -1,11 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Recommendations} from '../models/Recommendations';
+import {Observable} from 'rxjs';
 
-@Injectable({providedIn: 'root'})
-export class RecommendationsService {
+@Injectable({providedIn: 'root'})export class RecommendationsService {
 
     constructor(private http : HttpClient) {}
+    // get recommendations by user
+    getRecommendationsByUser(user : string): Observable < Recommendations[] > {
+        return this.http.get('http://localhost:8080/recommendations/name/' + user)as Observable < Recommendations[] >;
+    }
 
 
     // send users

@@ -33,10 +33,17 @@
         <!-- End Review Form Button-->
 
         <!-- Begin Logout Button -->
-        <div class="lg-2 align-right text-success">
-            <a routerLink="login" class="nav-link" *ngIf="nav.UserVis" (click)="nav.invalidateSession()">Log Out</a>
-        </div>
+
+        <a routerLink="login" class="nav-link" *ngIf="nav.UserVis" (click)="nav.invalidateSession()">Log Out</a>
+
         <!-- End Logout Button -->
+
+        <!--Begin profile link-->
+
+        <a routerLink="profile-page" class="nav-link" *ngIf="nav.UserVis" (click)="viewProfile">View Your Profile</a>
+
+        <!--End profile link-->
+
 
 
     </nav>

@@ -20,14 +20,19 @@ import {Users} from '../models/Users';
 import {Recommendations} from '../models/Recommendations';
 import {MoviesService} from '../services/movies.service';
 import {UsersService} from '../services/users.service';
+import {NavbarService} from '../services/navbar.service';
 
 @Component({selector: 'app-simple-search', templateUrl: './simple-search.component.html', styleUrls: ['./simple-search.component.css']})
 export class SimpleSearchComponent implements OnInit {
 
-  searchterm:string;
-  //visible:boolean = false;
-  reviews:Reviews[] = [];
-  
+
+    noUserVis : boolean = true; // if no user logged in
+    UserVis : boolean = false; // if user logged in
+
+    searchterm : string;
+    // visible:boolean = false;
+    reviews : Reviews[] = [];
+
 
   //for favorites
   movie:Movies= new Movies(0, "");;
@@ -41,22 +46,17 @@ export class SimpleSearchComponent implements OnInit {
     receiverName : string;
     reccomendation : Recommendations;
 
-  constructor(private reviewService:ReviewsService, 
-              private favoriteService:FavoritesService,
-              private userService:UsersService,
-              private movieService:MoviesService,
-             private recommendationService : RecommendationsService) { }
-
-  ngOnInit(): void {
-    
-    
-    
-  }
 
 
-  
+    constructor(public nav : NavbarService, private reviewService : ReviewsService, private recommendationService : RecommendationsService, 
+                private movieService : MoviesService, private userService : UsersService, private favoriteService:FavoritesService,) {}
 
-  //Add Favorites
+    ngOnInit(): void {
+        this.nav.checkSession();
+        this.showRecButton();
+    }
+
+   //Add Favorites
   addFavorites(name:string){
     
 
@@ -103,12 +103,32 @@ export class SimpleSearchComponent implements OnInit {
   }
 
  // control modal display
+
     popUp() {
         $("#modal-thingy").toggleClass("show");
         $("#modal-thingy").toggleClass("hide")
     }
 
+
+    // console.log("button clicked!2", $("#modal-thingy"));
+    // This is jQuery. jQuery allows us to manipulate the DOM
+    // Here i target an element with the id modal-thingy
+    // Then, I add/remove certain classes from the modal in order to hide/show the /////// modal.
+
+    showRecButton() {
+        if (sessionStorage.length > 0) {
+            this.noUserVis = true;
+            this.UserVis = false;
+        } else {
+            this.noUserVis = false;
+            this.UserVis = true;
+        }
+    }
+
+
+    
  insertRecommendation(movieName : string, receiverName : string) {
+
 
         this.movieService.getMovieByName(movieName).subscribe(data => {
             this.movie1 = data[0];
